@@ -4,6 +4,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      timeElapsed: 0,
       playerOne: {
         ringsScored: 0,
       },
@@ -23,12 +24,18 @@ class Game extends Component {
       this.setState({ winningPlayer: 2 })
     }
   }
+  incrementTime(){
+    this.setState({ timeElapsed: this.state.timeElapsed + 1 });
+  }
+  componentDidMount(){
+    setInterval(() => this.incrementTime(), 1000);
+  }
   render() {
     return (
       <div className="game">
         <div>
-          <p>Game Start! || Player 1: 0 Rings || Player 2: 0 Rings</p>
-
+          <p>Game Start! || Player 1: {this.state.playerOne.ringsScored} Rings || Player 2: {this.state.playerOne.ringsScored} Rings</p>
+          <p>Time Elapsed: {('0' + Math.floor(this.state.timeElapsed/3600) % 24).slice(-2)}:{('0' + Math.floor(this.state.timeElapsed/60) % 60).slice(-2)}:{('0' + this.state.timeElapsed % 60).slice(-2)}</p>
           <div>
             Insert Game Board
           </div>
