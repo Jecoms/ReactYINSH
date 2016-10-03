@@ -4,13 +4,13 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerOne = {
+      playerOne: {
         ringsScored: 0,
       },
-      playerTwo = {
+      playerTwo: {
         ringsScored: 0,
       },
-      playerTurn = 1,
+      playerTurn: 1,
       winningPlayer: 0,
     }
   }
@@ -24,19 +24,18 @@ class Game extends Component {
     }
   }
   render() {
-    if (this.state.activeGame) {
-      return (
-        <div className="gameWindow">
-          <Game />
-        </div>
-      )
-    }
     return (
-      <div className="gameWindow">
-        <MainMenu startGame={() => this.startNewGame()} />
+      <div className="game">
+        <div>
+          <p>Game Start! || Player 1: 0 Rings || Player 2: 0 Rings</p>
+
+          <div>
+            Insert Game Board
+          </div>
+         </div>
       </div>
     )
   }
 }
 
-export default GameWindow;
+export default Game;
