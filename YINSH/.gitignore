@@ -11,4 +11,6 @@ build
 
 # misc
 .DS_Store
-npm-debug.log
+
+# logs
+*.log
