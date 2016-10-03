@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MainMenu from './mainMenu';
 
 class GameWindow extends Component {
   constructor(props) {
@@ -7,21 +8,20 @@ class GameWindow extends Component {
       activeGame: false
     }
   }
+  startNewGame() {
+    this.setState({ activeGame: true })
+  }
   render() {
     if (this.state.activeGame) {
       return (
-        <div>
+        <div className="gameWindow">
           Game Running...
         </div>
       )
     }
     return (
-      <div className="App">
-        <div>
-          <button>New Game</button>
-          <button>Find a Game</button>
-          <button>How to Play</button>
-        </div>
+      <div className="gameWindow">
+        <MainMenu startGame={() => this.startNewGame()} />
       </div>
     )
   }
