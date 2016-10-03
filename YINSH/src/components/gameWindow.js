@@ -15,7 +15,7 @@ class GameWindow extends Component {
     if (this.state.activeGame) {
       return (
         <div className="gameWindow">
-          Game Running...
+          <Game />
         </div>
       )
     }
